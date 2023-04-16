@@ -1,0 +1,396 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+}
+
+body {
+    width: 100%;
+    background-color: #FFFFFF;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.player {
+    margin: 0;
+    /* margin: 0 auto; */
+    width: 1000px;
+    position: relative;
+    z-index: 10;
+    
+}
+
+.timebar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 35px;
+    
+}
+
+.controls {
+    position: absolute;
+    
+    bottom: 0;
+    top: 0;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    /* flex-direction: row; */
+    /* flex-flow: row wrap; */
+
+    justify-content: end;
+
+    width: 1000px;
+    /* align-items: end; */
+
+    
+    animation: animate_control_unuse 1s forwards;
+
+}
+
+.controls:hover {
+    animation: animate_control_use 1s forwards;
+
+}
+
+.buttons {
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    bottom: -20px;
+    z-index: 1;
+}
+
+button {
+    /* opacity: 1; */
+    width: 100px;
+    height: 30px;
+}
+
+
+progress {
+    
+    /* стили */
+    width: 100%;
+    height: 15px;
+    margin-bottom: 8px;
+    border-radius: 15px;
+}
+
+progress::-webkit-progress-bar {
+    
+    /* стили  */
+    /* width: 75%; */
+    height: 5px;
+    margin-bottom: 8px;
+    border-radius: 15px;
+    color: blueviolet;
+    
+}
+    
+progress::-webkit-progress-value {
+    
+    /* стили */
+    /* width: 75%; */
+    height: 15px;
+    margin-bottom: 8px;
+    border-radius: 15px;
+    background-color: blueviolet;
+    
+}
+
+progress::-webkit-progress-bar:hover {
+    position: absolute;
+    top: -5px;
+    height: 10px;
+    
+}
+    
+progress::-moz-progress-bar {
+
+    /* стили */
+    border-radius: 15px;
+
+}
+    
+.block{
+    margin-top: -4px;
+    width: 100%;
+    height: 100px;
+    background-color: #FFFFFF;
+    position: relative; 
+    z-index: 100;
+}
+
+.play_pause {
+    position: relative;
+    z-index: 10;
+    background-color: rgb(218, 28, 28);
+    width: 10%;
+}
+
+.right{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.left {
+    width: 50%;
+}
+
+#play{
+    position: absolute;
+    top: 5px;
+    height: var(--pl);
+}
+
+#pause {
+    position: absolute;
+    top: 5px;
+    left: -3px;
+    height: var(--pa);
+}
+
+.volume {
+    position: relative;
+    transform: translateX(70px) translateY(-3px);
+}
+
+.volume-btn{
+    width: 40px;
+    height: 40px;
+}
+
+.volume-range {
+    /* position: absolute; */
+    /* bottom: 0;
+    left: 30%; */
+    transform: scaleY(0) translateY(-10px);
+    transition: transform 0.2s ease-out;
+}
+
+.volume-btn:hover + .volume-range {
+    transform: scaleY(1) translateY(-10px);
+}
+
+.volume-range:hover {
+    transform: scaleY(1) translateY(-10px);
+}
+
+#volume{
+    transform: translateY(6px);
+}
+
+#setting{
+    height: 40px;
+    fill: #FFFFFF;
+}
+
+.item {
+    width: 50px;
+    height: 40px;
+    align-self: center;
+    margin: auto 5px;
+}
+
+#exclude{
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.sett{
+    width: 50px;
+    height: 50px;
+}
+
+#setting{
+    height: 100%;
+    width: 100%;
+}
+
+.eye{
+    width: 50px;
+    height: 50px;
+}
+
+#eye{
+    height: 100%;
+    width: 100%;
+}
+
+.fullscreen{
+    width: 50px;
+}
+
+#fullScreen{
+    fill: #FFFFFF;
+    height: 45px;
+}
+
+@keyframes animate_control_unuse {
+	0% {
+        transform: translateY(-20px);
+	}
+	100% {
+        transform: translateY(40px);
+	}
+}
+
+@keyframes animate_control_use {
+	0% {
+        transform: translateY(40px);
+	}
+	100% {
+        transform: translateY(-20px);
+	}
+}
+
+.grayscale {
+    filter: grayscale(1%);
+    filter: hue-rotate(90deg);
+}
+
+.contrast {
+    /*если будут какие-то проблемы, то я мог тут накосячит с переменными(я объеденил их для ползунка и для пресетов)*/
+    filter: 
+    grayscale(var(--mon)) 
+    saturate(var(--dix)) 
+    hue-rotate(var(--colorRotate))
+    brightness(var(--brt))
+    contrast(var(--cont))
+    blur(var(--sha))
+    ;
+}
+
+/* .contrast-remove {
+    filter: brightness(1);
+    transition: filter 3s ease-out; 
+} */
+
+/* тут был Егор */
+/*настройки меню*/
+.setupMenu {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+    margin-right: 15px;
+}
+
+/*настройка рамок*/
+.subtitles {
+    border-radius: 30px 0 0 30px;
+}
+
+.color_blindness {
+    border-radius: 0 30px 30px 0;
+}
+
+/* общая настройка блоков */
+.subtitles,
+.color_correction,
+.font_size,
+.color_blindness {
+    background-color: #888888;
+    width: 20%;
+    height: 350px;
+}
+
+h2 {
+    margin-top: 5px;
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+button {
+    border: none;
+    background-color:#888888 ;
+    color: #FFFFFF;
+    width: 100%;
+    height: 40px;
+}
+
+/* настройка слайдеров чтобы все было в колонку */
+.slidecontainer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+span {
+    color: #FFFFFF;
+    size: 20px;
+    line-height: 24.2px;
+}
+ 
+output {
+    color: #FFFFFF;
+   font-weight: 600;
+    size: 20px;
+    line-height: 24.2px;
+}
+
+button:hover {
+    background: #7E7E7E;
+}
+
+/*сделан очень кустарно после чека переделать*/
+.block-myrange {
+    display: flex;
+    
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+#myRange {
+    margin-top: 30px;
+    
+    transform: rotate(270deg);
+}
+
+.subtitles:hover,
+.color_correction:hover,
+.font_size:hover {
+    background-color:#B2B2B2ED ;
+}
+
+button:hover {
+    background-color:#B2B2B2ED ;
+}
+
+:root {
+    --pl: 30px;
+    --pa: 0px;
+    --mon: 0; /* % */
+    --dix: 1; /* % */
+    --colorRotate: 0; /*deg*/
+    --brt: 1; /*100%*/
+    --cont: 1;/*100%*/
+    --sat: 1; /*%*/
+    --sha: 0px;/* px */
+}
+
+/* настройки модалки */
+
+.vmodal {
+    opacity: 0;
+    z-index: -1;
+    margin-bottom: 50px;
+}
+
+.vmodal.open {
+    opacity: 1;
+    z-index: 1000;
+}
